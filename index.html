@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title> Nanda Jago - Rickroll</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            padding: 20px;
+        }
+
+        .prank-card {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.88);
+            backdrop-filter: blur(2px);
+            border-radius: 56px;
+            padding: 25px 20px 35px 20px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .title-prank {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            word-break: break-word;
+        }
+
+        .title-prank .gradient-text {
+            background: linear-gradient(135deg, #FFD966, #FFB347, #FF8C5A);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .title-prank .emoji {
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #000000;
+            text-shadow: none;
+            display: inline-block;
+            font-weight: normal;
+        }
+
+        .mending-turu {
+            font-size: 1.9rem;
+            font-weight: bold;
+            color: #c3f0ff;
+            background: #1e2a3a80;
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 6px #00d4ff40, 0 6px 12px rgba(0,0,0,0.2);
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            background: #000000;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -10px black, 0 0 0 3px rgba(255,215,0,0.4);
+            margin-bottom: 20px;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            vertical-align: middle;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        .second-audio-area {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 28px;
+            border: 1px solid rgba(255,200,100,0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .second-audio-title {
+            color: #ffcc88;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .clickable-audio {
+            cursor: pointer;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #1e2a3a, #0f1a24);
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            text-align: center;
+            border: 1px solid rgba(255,180,80,0.4);
+        }
+
+        .clickable-audio:hover {
+            transform: scale(1.01);
+            background: linear-gradient(135deg, #2a3a4a, #1a2530);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        .audio-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .audio-status {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffdd99;
+            margin-top: 8px;
+        }
+
+        .click-hint {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #ffaa66;
+            background: rgba(0,0,0,0.5);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 40px;
+        }
+
+        .warning-text {
+            font-size: 1.35rem;
+            font-weight: 600;
+            background: #2c1a1f;
+            color: #ffb7b7;
+            padding: 12px 20px;
+            border-radius: 50px;
+            margin: 12px 20px 20px 20px;
+            display: inline-block;
+            border-left: 6px solid #ff4444;
+            border-right: 6px solid #ff4444;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .trap-button {
+            background: linear-gradient(95deg, #dc2f2f, #b91c1c);
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.7rem;
+            font-weight: bold;
+            font-family: inherit;
+            color: white;
+            text-shadow: 0 1px 3px black;
+            border-radius: 70px;
+            cursor: pointer;
+            box-shadow: 0 12px 0 #6d0e0e, 0 5px 20px rgba(0,0,0,0.4);
+            transition: 0.07s linear;
+            width: 80%;
+            max-width: 320px;
+            margin-top: 5px;
+            letter-spacing: 1.5px;
+        }
+
+        .trap-button:active {
+            transform: translateY(4px);
+            box-shadow: 0 6px 0 #6d0e0e;
+        }
+
+        @keyframes gentleShake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(3px); }
+            75% { transform: translateX(-3px); }
+            100% { transform: translateX(0); }
+        }
+
+        .shake-hover:hover {
+            animation: gentleShake 0.25s ease-in-out 0s 1;
+        }
+
+        .footer-note {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #6c7a89;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 550px) {
+            .prank-card {
+                padding: 20px 12px 30px 12px;
+            }
+            .title-prank {
+                font-size: 1.8rem;
+            }
+            .mending-turu {
+                font-size: 1.3rem;
+                padding: 4px 16px;
+            }
+            .warning-text {
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+            .trap-button {
+                font-size: 1.3rem;
+                padding: 12px 20px;
+                width: 90%;
+            }
+            .second-audio-title {
+                font-size: 0.85rem;
+            }
+            .audio-icon {
+                font-size: 2.5rem;
+            }
+        }
+
+        .video-error-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem;
+            color: #ffaa88;
+            font-family: monospace;
+        }
+
+        .audio-error-note {
+            margin-top: 10px;
+            padding: 8px;
+            background: #330000;
+            border-radius: 20px;
+            color: #ffaa88;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="prank-card">
+    <div class="title-prank">
+        <span class="gradient-text">kamu telah di prank oleh Nanda jago</span> <span class="emoji">😹</span>
+    </div>
+
+    <div class="mending-turu">
+        (mending turu)
+    </div>
+
+    <div class="video-container">
+        <video id="rickrollVideo" autoplay muted playsinline loop>
+            <source src="rickroll.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="second-audio-area">
+        <div class="second-audio-title">🎵 AUDIO MP3 (KLIK UNTUK PUTAR) 🎵</div>
+        <div id="clickableAudio" class="clickable-audio">
+            <div class="audio-icon">🔊</div>
+            <div class="audio-status" id="audioStatusText">Klik untuk memutar audio</div>
+        </div>
+        <div class="click-hint">▶ Klik area di atas untuk memutar MP3</div>
+    </div>
+
+    <div class="warning-text">
+        jangan nge click button dibawah ini
+    </div>
+
+    <button id="trapBtn" class="trap-button shake-hover">
+        JANGAN KLIK AKU
+    </button>
+    <div class="footer-note">
+        seriusan jangan coba-coba
+    </div>
+</div>
+
+<script>
+(function() {
+    const rickroll = document.getElementById('rickrollVideo');
+    
+    if (rickroll) {
+        rickroll.muted = true;
+        const playRickroll = () => {
+            rickroll.play().catch(() => {});
+        };
+        if (rickroll.readyState >= 2) {
+            playRickroll();
+        } else {
+            rickroll.addEventListener('canplay', playRickroll, { once: true });
+        }
+        rickroll.addEventListener('error', () => {
+            const container = document.querySelector('.video-container');
+            if (container && !container.querySelector('.video-error-fallback')) {
+                const errDiv = document.createElement('div');
+                errDiv.className = 'video-error-fallback';
+                errDiv.innerHTML = '⚠️ rickroll.mp4 tidak ditemukan ⚠️';
+                container.style.position = 'relative';
+                container.appendChild(errDiv);
+                rickroll.style.opacity = '0';
+            }
+        });
+        rickroll.loop = true;
+    }
+    
+    const audioElement = new Audio();
+    audioElement.src = 'videoplayback.mp3';
+    audioElement.loop = false;
+    audioElement.volume = 1.0;
+    
+    const audioStatusText = document.getElementById('audioStatusText');
+    const clickableArea = document.getElementById('clickableAudio');
+    
+    function updateAudioStatus(playing, error = false) {
+        if (error) {
+            audioStatusText.innerHTML = '❌ File MP3 tidak ditemukan';
+            const iconDiv = document.querySelector('.clickable-audio .audio-icon');
+            if (iconDiv) iconDiv.innerHTML = '⚠️';
+            return;
+        }
+        if (playing) {
+            audioStatusText.innerHTML = '🔊 Sedang diputar';
+            const iconDiv = document.querySelector('.clickable-audio .audio-icon');
+            if (iconDiv) iconDiv.innerHTML = '🎵';
+        } else {
+            audioStatusText.innerHTML = 'Klik untuk memutar audio';
+            const iconDiv = document.querySelector('.clickable-audio .audio-icon');
+            if (iconDiv) iconDiv.innerHTML = '🔊';
+        }
+    }
+    
+    if (clickableArea) {
+        clickableArea.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (audioElement.paused) {
+                audioElement.play().then(() => {
+                    updateAudioStatus(true);
+                }).catch((err) => {
+                    console.error('Gagal play audio:', err);
+                    updateAudioStatus(false);
+                });
+            } else {
+                audioElement.pause();
+                updateAudioStatus(false);
+            }
+        });
+    }
+    
+    audioElement.addEventListener('error', () => {
+        updateAudioStatus(false, true);
+        if (clickableArea && !clickableArea.querySelector('.audio-error-note')) {
+            const errNote = document.createElement('div');
+            errNote.className = 'audio-error-note';
+            errNote.innerHTML = '⚠️ videoplayback.mp3 tidak ditemukan, pastikan file ada ⚠️';
+            clickableArea.appendChild(errNote);
+        }
+    });
+    
+    audioElement.load();
+    
+    const button = document.getElementById('trapBtn');
+    if (button) {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = "https://saweria.co/NdasadPentester";
+        });
+    }
+})();
+</script>
+</body>
+</html>
